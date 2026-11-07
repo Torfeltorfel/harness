@@ -1,0 +1,8 @@
+{
+  "name": "research",
+  "version": "0.1.0",
+  "description": "Startup research: office hours, JTBD discovery, sourced web research written to projects/<slug>/.",
+  "author": {
+    "name": "Torben Feldmann"
+  }
+}
