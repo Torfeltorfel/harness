@@ -25,6 +25,12 @@ Enable in a project:
 
 Pick up a new version in a project: `claude plugin marketplace update torben`, then start a new session.
 
+## Tooling
+
+[`tooling.md`](tooling.md): tools for projects, as ideas, experimental or suggested.
+
+[`ci-best-practices.md`](ci-best-practices.md): concepts for a good CI pipeline.
+
 ## Experimenting with harness changes
 
 Work on an `experimental` branch in `~/Coding/harness`; `main` is what every project gets.
