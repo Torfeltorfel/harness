@@ -4,7 +4,7 @@ Reusable Claude Code plugins. Each project chooses its plugins in its committed 
 
 | Plugin | What it gives you |
 |---|---|
-| `engineering` | `/retro`, `/pr`, `/grill-with-docs`, `tdd`, `codebase-design`, and `research` for sourced technical questions |
+| `engineering` | `/retro`, `/pr`, `/grill-with-docs`, `tdd`, `codebase-design`, `worktree`, and `research` for sourced technical questions |
 | `research` | `/office-hours`, `discovery`, `market-research`, which write to `projects/<slug>/` |
 
 Enable in a project:
