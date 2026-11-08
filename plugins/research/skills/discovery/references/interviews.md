@@ -30,7 +30,7 @@ If `business-case.md` names multiple candidate users, start with the one most li
 
 **How to find them:**
 - LinkedIn: search by role + industry + company size, message directly
-- Reddit/Slack/Discord: communities where your target hangs out (the `research` skill can help surface these)
+- Reddit/Slack/Discord: communities where your target hangs out (the `market-research` skill can help surface these)
 - Warm network: founders, former colleagues, friends-of-friends who match the persona
 - Twitter/X: people who complain about the problem in public
 

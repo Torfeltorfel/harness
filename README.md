@@ -4,8 +4,8 @@ Reusable Claude Code plugins. Each project chooses its plugins in its committed 
 
 | Plugin | What it gives you |
 |---|---|
-| `engineering` | `/engineering:harness` to inspect a project's setup or `init` a new one |
-| `research` | `/office-hours`, `discovery`, `research`, which write to `projects/<slug>/` |
+| `engineering` | `/retro`, `/pr`, `/grill-with-docs`, `tdd`, `codebase-design`, and `research` for sourced technical questions |
+| `research` | `/office-hours`, `discovery`, `market-research`, which write to `projects/<slug>/` |
 
 Enable in a project:
 

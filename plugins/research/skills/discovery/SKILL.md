@@ -84,7 +84,7 @@ If after two push cycles there is still no answer:
 ## Phase 4: Save Findings
 
 **Write/update `projects/<slug>/discovery.html`:**
-- Use `projects/assets/style.css` (same convention as `research`: copy it
+- Use `projects/assets/style.css` (same convention as `market-research`: copy it
   from `../shared/assets/style.css` if missing), read it first and build on
   it — extend only for a genuinely new reusable pattern. Link it with
   `href="../assets/style.css"`.
@@ -92,7 +92,7 @@ If after two push cycles there is still no answer:
   founder's words where possible), the Four Forces if gathered, and a
   **Knowledge Gaps** section using the `.callout-gap` style — never folded
   into prose.
-- No fixed skeleton — same non-goal as `research`'s topic pages. Build
+- No fixed skeleton — same non-goal as `market-research`'s topic pages. Build
   sections from the shared stylesheet's existing classes (`.finding`,
   `.badge`, `.callout-gap`) rather than inventing new markup; layout and
   grouping beyond the two requirements above are your judgment call.
@@ -106,13 +106,13 @@ If after two push cycles there is still no answer:
   transcript into business-case.md.
 - Update Section 8 ("Where this stands") with which of trigger / friction /
   outcome is resolved vs. an open Knowledge Gap — this is what the next
-  session (this skill, office-hours, or research) resumes from.
+  session (this skill, office-hours, or market-research) resumes from.
 
 ---
 
 ## Important Rules
 
-- **Never start implementation.** Same hard gate as office-hours/research.
+- **Never start implementation.** Same hard gate as office-hours/market-research.
 - **Questions ONE AT A TIME.**
 - **All three elements or an explicit gap.** The interview never closes on a
   restated vague answer — either the trigger/friction/outcome gets named

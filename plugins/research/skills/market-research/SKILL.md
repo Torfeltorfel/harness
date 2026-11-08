@@ -1,9 +1,9 @@
 ---
-name: research
-description: Use when information can be gathered through a web research
+name: market-research
+description: Sourced web research on a startup topic (competitors, pricing, market size, customer pain in public forums), with strength-tagged findings written to projects/<slug>/<topic>.html. Use when a startup knowledge gap can be filled from public sources. Not for technical or library questions (that is engineering:research).
 ---
 
-# Research
+# Market research
 
 Fills a startup knowledge gap with real, sourced web research — strength-tagged
 evidence, not speculation.

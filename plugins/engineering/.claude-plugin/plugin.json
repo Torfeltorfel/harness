@@ -1,7 +1,7 @@
 {
   "name": "engineering",
-  "version": "0.1.0",
-  "description": "/harness to inspect a project's harness or init a new one.",
+  "version": "0.2.0",
+  "description": "Engineering workflow: /retro, /pr, /grill-with-docs, tdd, codebase-design and sourced technical research.",
   "author": {
     "name": "Torben Feldmann"
   }

@@ -8,12 +8,12 @@
     {
       "name": "engineering",
       "source": "./plugins/engineering",
-      "description": "/harness to inspect a project's harness or init a new one."
+      "description": "Engineering workflow: /retro, /pr, /grill-with-docs, tdd, codebase-design and sourced technical research."
     },
     {
       "name": "research",
       "source": "./plugins/research",
-      "description": "Startup research: office hours, JTBD discovery, sourced web research written to projects/<slug>/."
+      "description": "Startup research: office hours, JTBD discovery, sourced market research written to projects/<slug>/."
     }
   ]
 }
