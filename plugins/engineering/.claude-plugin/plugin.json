@@ -1,6 +1,6 @@
 {
   "name": "engineering",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Engineering workflow: /retro, /pr, /grill-with-docs, tdd, codebase-design and sourced technical research.",
   "author": {
     "name": "Torben Feldmann"

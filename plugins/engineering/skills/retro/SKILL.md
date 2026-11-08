@@ -39,7 +39,7 @@ Pick the right home for each fix, smallest first:
 |---|---|
 | Project fact or convention | project `CLAUDE.md` |
 | Personal preference across projects | memory or `~/.claude/CLAUDE.md` |
-| Repeatable workflow, reusable across projects | skill in the `torben` marketplace (this repo) |
+| Repeatable workflow, reusable across projects | skill in the `torben` marketplace repo (`~/Coding/harness`, GitHub `Torfeltorfel/torben-harness`), not the current project |
 | Workflow only for this project | `.claude/skills/` in the project |
 | Must happen every time, deterministically | hook in settings |
 | Recurring permission prompt | `permissions.allow` in settings |
@@ -52,5 +52,5 @@ edits. Skip anything that would only have helped this one session.
 
 Ask which proposals to apply, then apply exactly those. Keep CLAUDE.md
 additions short; edit an existing line instead of adding a near-duplicate.
-If a change goes into the `torben` marketplace, bump that plugin's version and
+If a change goes into the `torben` marketplace, edit it in `~/Coding/harness`, bump that plugin's version and
 mention that it needs a commit and push to reach other projects.

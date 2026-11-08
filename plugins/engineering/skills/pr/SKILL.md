@@ -1,7 +1,6 @@
 ---
 name: pr
 description: Turn the current work into a GitHub pull request - branch, commit, push, and open the PR with a clear description. Use when the user asks to open, create or update a PR.
-disable-model-invocation: true
 argument-hint: "[draft] [base branch]"
 ---
 
@@ -33,8 +32,11 @@ Stop and ask if:
 
 ## 3. Push and open
 
-Push with `-u`. Then `gh pr create` (add `--draft` if requested), or
-`gh pr edit` if a PR already exists. Description:
+Push with `-u`. Then `gh pr create` (add `--draft` if requested). If a PR
+already exists, just push; don't overwrite its description. Only when the new
+commits change what the PR does, append a short `## Update` section with
+`gh pr edit --body` built from the current body, or rewrite it if the user asks.
+Description for a new PR:
 
 ```markdown
 ## Why
