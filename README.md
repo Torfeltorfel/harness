@@ -16,6 +16,13 @@ Enable in a project:
 }
 ```
 
+## Suggested settings
+
+[`suggested-settings.json`](suggested-settings.json) holds personal defaults for `~/.claude/settings.json`. Plugins can't set these, so merge the keys in by hand (don't overwrite the file). Plugins themselves stay enabled per project.
+
+- `outputStyle: Concise` leads with the result and drops preamble, narration and recaps. Needs Claude Code v2.1.237+. The value is case-sensitive: `concise` silently falls back to Default.
+- Override per project in `.claude/settings.json`, or per session with `/output-style`. Note that `/output-style` and `/config` write to `.claude/settings.local.json`, which then wins over the user default in that project.
+
 Pick up a new version in a project: `claude plugin marketplace update torben`, then start a new session.
 
 ## Experimenting with harness changes
