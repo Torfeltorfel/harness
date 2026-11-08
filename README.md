@@ -16,6 +16,31 @@ Enable in a project:
 }
 ```
 
-Local development: `claude plugin marketplace add ~/Coding/torben-harness`.
+Pick up a new version in a project: `claude plugin marketplace update torben`, then start a new session.
+
+## Experimenting with harness changes
+
+Work on an `experimental` branch in `~/Coding/harness`; `main` is what every project gets.
+
+1. **Iterate in one session.** Load the plugin straight from the working copy (whatever branch is checked out); nothing is installed and other projects stay on `main`. Restart the session to pick up edits.
+
+   ```bash
+   claude --plugin-dir ~/Coding/harness/plugins/engineering
+   # or all plugins: claude --plugin-dir ~/Coding/harness/plugins
+   ```
+
+2. **Live with it in one project.** Push the branch and pin that project to it in `.claude/settings.local.json` (not committed), then run `claude plugin marketplace update torben`:
+
+   ```json
+   {
+     "extraKnownMarketplaces": {
+       "torben": { "source": { "source": "github", "repo": "Torfeltorfel/torben-harness", "ref": "experimental" } }
+     }
+   }
+   ```
+
+3. **Ship it.** Merge into `main`, bump the plugin version, push, and run `claude plugin marketplace update torben` in other projects.
+
+Installed plugins are cached by version: bump it (e.g. `0.4.0-exp.1`) on every pushed experimental change so updates are picked up and `/plugin` shows which build is running. Changes proposed by `/retro` go to `experimental` first.
 
 Rule: workflows and skills go in plugins. Project commands, paths and conventions stay in the project.
