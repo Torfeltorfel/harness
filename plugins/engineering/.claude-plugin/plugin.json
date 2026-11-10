@@ -1,6 +1,6 @@
 {
   "name": "engineering",
-  "version": "0.4.0-exp.1",
+  "version": "0.4.0-exp.2",
   "description": "Engineering skills from mattpocock/skills (spec, tickets, wayfinder, tdd, prototype, code review, architecture, domain modeling and more) plus worktree.",
   "author": {
     "name": "Torben Feldmann"

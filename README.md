@@ -2,9 +2,11 @@
 
 Reusable Claude Code plugins. Each project chooses its plugins in its committed `.claude/settings.json`.
 
+> **Credit:** the `engineering` and `productivity` skills started as a copy of Matt Pocock's [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, copied at commit `4ae2317`). This repo is my own setup built on that work and changes it freely; see the licenses in [`plugins/engineering/LICENSE-mattpocock`](plugins/engineering/LICENSE-mattpocock) and [`plugins/productivity/LICENSE`](plugins/productivity/LICENSE).
+
 | Plugin | What it gives you |
 |---|---|
-| `engineering` | Engineering skills from [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/engineering) (MIT, at `4ae2317`), plus `worktree`. Run `/setup-matt-pocock-skills` once per repo. |
+| `engineering` | Engineering skills from [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/engineering) (MIT, at `4ae2317`), plus `worktree`. Run `/setup` once per repo. |
 | `productivity` | Productivity skills from [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/productivity) (MIT). Engineering skills call `grilling` from here, so enable both. |
 | `research` | `/office-hours`, `discovery`, `market-research`, which write to `projects/<slug>/` |
 
