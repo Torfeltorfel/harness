@@ -1,4 +1,4 @@
-# torben-harness
+# harness
 
 Reusable Claude Code plugins. Each project chooses its plugins in its committed `.claude/settings.json`.
 
@@ -14,8 +14,8 @@ Enable in a project:
 
 ```json
 {
-  "extraKnownMarketplaces": { "torben": { "source": { "source": "github", "repo": "Torfeltorfel/torben-harness" } } },
-  "enabledPlugins": { "engineering@torben": true, "productivity@torben": true, "research@torben": true }
+  "extraKnownMarketplaces": { "harness": { "source": { "source": "github", "repo": "Torfeltorfel/harness" } } },
+  "enabledPlugins": { "engineering@harness": true, "productivity@harness": true, "research@harness": true }
 }
 ```
 
@@ -26,7 +26,7 @@ Enable in a project:
 - `outputStyle: Concise` leads with the result and drops preamble, narration and recaps. Needs Claude Code v2.1.237+. The value is case-sensitive: `concise` silently falls back to Default.
 - Override per project in `.claude/settings.json`, or per session with `/output-style`. Note that `/output-style` and `/config` write to `.claude/settings.local.json`, which then wins over the user default in that project.
 
-Pick up a new version in a project: `claude plugin marketplace update torben`, then start a new session.
+Pick up a new version in a project: `claude plugin marketplace update harness`, then start a new session.
 
 ## Tooling
 
@@ -45,17 +45,17 @@ Work on an `experimental` branch in `~/Coding/harness`; `main` is what every pro
    # or all plugins: claude --plugin-dir ~/Coding/harness/plugins
    ```
 
-2. **Live with it in one project.** Push the branch and pin that project to it in `.claude/settings.local.json` (not committed), then run `claude plugin marketplace update torben`:
+2. **Live with it in one project.** Push the branch and pin that project to it in `.claude/settings.local.json` (not committed), then run `claude plugin marketplace update harness`:
 
    ```json
    {
      "extraKnownMarketplaces": {
-       "torben": { "source": { "source": "github", "repo": "Torfeltorfel/torben-harness", "ref": "experimental" } }
+       "harness": { "source": { "source": "github", "repo": "Torfeltorfel/harness", "ref": "experimental" } }
      }
    }
    ```
 
-3. **Ship it.** Merge into `main`, bump the plugin version, push, and run `claude plugin marketplace update torben` in other projects.
+3. **Ship it.** Merge into `main`, bump the plugin version, push, and run `claude plugin marketplace update harness` in other projects.
 
 Installed plugins are cached by version: bump it (e.g. `0.4.0-exp.1`) on every pushed experimental change so updates are picked up and `/plugin` shows which build is running. Changes proposed by `/retro` go to `experimental` first.
 
