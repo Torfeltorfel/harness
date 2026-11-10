@@ -8,12 +8,17 @@
     {
       "name": "engineering",
       "source": "./plugins/engineering",
-      "description": "Engineering workflow: /retro, /pr, /grill-with-docs, tdd, codebase-design, worktree and sourced technical research."
+      "description": "Engineering skills from mattpocock/skills (spec, tickets, wayfinder, tdd, prototype, code review, architecture, domain modeling and more) plus worktree."
     },
     {
       "name": "research",
       "source": "./plugins/research",
       "description": "Startup research: office hours, JTBD discovery, sourced market research written to projects/<slug>/."
+    },
+    {
+      "name": "productivity",
+      "source": "./plugins/productivity",
+      "description": "Productivity skills from mattpocock/skills: grilling, grill-me, handoff, teach, to-questionnaire, wait-what, writing-for-agents."
     }
   ]
 }

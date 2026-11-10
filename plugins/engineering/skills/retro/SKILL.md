@@ -1,56 +1,44 @@
 ---
 name: retro
-description: Retrospective on the current session. Finds friction, corrections and repeated work, and turns them into concrete changes to the harness (CLAUDE.md, skills, hooks, settings, memory). Use at the end of a session or after something went wrong.
+description: "Conduct a retrospective on a coding session."
 disable-model-invocation: true
-argument-hint: "[focus, e.g. 'the failed deploy']"
 ---
 
-# Retro
+The user has asked for a **retrospective**. You are suggesting improvements to the coding agent's **environment** to improve future runs.
 
-The harness gets better one session at a time. A retro looks back at what just
-happened and proposes the smallest change that would have made it go better.
+## Steps
 
-If an argument is given, focus the retro on that part of the session.
+1. Call the Skill tool with `writing-for-agents` for the writing style guide.
 
-## 1. Collect evidence
+2. Read the primary sources for the session the user specifies. This may mean searching through session logs on this machine. If the user doesn't specify a session, default to the current one.
 
-Go through the conversation and list, with short quotes or tool results:
+3. Look for candidates for improvement in these categories.
 
-- **Corrections**: every time the user said no, redirected, or redid something.
-- **Friction**: failed commands, wrong assumptions, files read twice, permission
-  prompts that kept coming back, questions the code could have answered.
-- **Repetition**: a sequence of steps done by hand that will clearly happen again.
-- **What worked**: approaches the user confirmed or praised. Worth keeping too.
+- **Navigation**: how easy was it for the agent to find the right files? Are there hidden dependencies between files? Would a **navigation pointer** make it easier? _Use when_ the session took a long time to find a piece of information.
+- **Automated checks**: are there automated checks that could catch errors the agent made? Linting, typing, tests, filesystem linters? Read the repo's own check command first (its `package.json`/build-tool `lint`/`check` scripts, its CI workflow), so a check that already exists but sits unwired or silently broken is the finding, not a reinvention. A repo with no **guardrail** (no pre-commit hook and no CI job running its lint/typecheck/test command) is itself a finding: an un-linted repo is a standing missed opportunity, not a neutral default. _Use when_ the agent made a mistake an automated check could have caught, or the repo has no guardrail at all.
+- **Coding standards**: should the **reviewer agent** be given a new rule to enforce? Should an existing rule be removed or clarified? Classify the violation first: a **mechanical** one (a fixed syntactic pattern, a banned API, an import shape, a file-location rule) gets a deterministic check, full stop: a custom rule in the repo's own linter, a new pre-commit hook, or a new CI job, whichever the repo's language and existing guardrail make cheapest. Default to building the check over writing the rule. Reserve `CODING_STANDARDS.md` for genuine **judgement calls** (cross-file consistency, "matches the surrounding style," anything no guardrail could ever substitute for). _Use when_ the reviewer agent failed to catch a mistake.
+- **Global AGENTS.md**: are there any steering instructions that should be moved to coding standards (or automated checks) instead? _Use when_ the AGENTS.md file is particularly large - in the repo OR the user's global scope.
+- **Tool economy**: did the agent make expensive tool calls that could be streamlined? Is there any custom tooling (CLI's, MCP's) that is particularly token-inefficient? _Use when_ the agent made an expensive tool call.
+- **No-ops**: look for instructions in steering files that don't modify the agent's behavior. _Use when_ the steering files are large and unwieldy.
+- **Information access**: look for opportunities to increase the agent's access to information. Teeing dev server logs, readonly access to third-party services. _Use when_ a crucial piece of information was not available to the agent.
 
-Only use what is in the session. Do not invent problems to fill the list.
+4. Present these candidates to the user, in order of severity.
 
-## 2. Diagnose
+## Reference
 
-For each item, one line: what was missing that caused it. Typical causes:
-missing project fact, missing convention, a workflow that should be a skill, a
-check that should be a hook, a permission that should be allowlisted, or a
-plain one-off mistake (no change needed).
+### Implementation vs Review
 
-## 3. Propose changes
+Remember that all work goes through two stages: implementation and review. The implementation agent has the most **context pressure**. They are responsible for exploration, writing code, and debugging failures.
 
-Pick the right home for each fix, smallest first:
+The review agent has the least context pressure - it receives a diff, so no exploration needed. It often does not need to write code or debug.
 
-| Fix | Home |
-|---|---|
-| Project fact or convention | project `CLAUDE.md` |
-| Personal preference across projects | memory or `~/.claude/CLAUDE.md` |
-| Repeatable workflow, reusable across projects | skill in the `torben` marketplace repo (`~/Coding/harness`, GitHub `Torfeltorfel/torben-harness`), not the current project |
-| Workflow only for this project | `.claude/skills/` in the project |
-| Must happen every time, deterministically | hook in settings |
-| Recurring permission prompt | `permissions.allow` in settings |
+This means that the review agent should be responsible for imposing coding standards, not the implementation agent.
 
-Present the proposals as a numbered list: the change, where it goes, and the
-session evidence behind it. Show the exact text for CLAUDE.md lines and skill
-edits. Skip anything that would only have helped this one session.
+### Files
 
-## 4. Apply
+You have access to several files in the repo:
 
-Ask which proposals to apply, then apply exactly those. Keep CLAUDE.md
-additions short; edit an existing line instead of adding a near-duplicate.
-If a change goes into the `torben` marketplace, edit it in `~/Coding/harness`, bump that plugin's version and
-mention that it needs a commit and push to reach other projects.
+- `CLAUDE.md`/`AGENTS.md`: these files are pushed to the context window of any agent working in this repo. They should be used incredibly sparingly, usually only for **navigation pointers** to other files.
+- `CODING_STANDARDS.md`: this file is read during review, not implementation. Add **navigation pointers** to docs folders if the standards file gets more than 1,000 lines long.
+- Docs: use docs as references files, pointed to by other files. Look for existing docs before writing new ones.
+- Skills: use skills for docs (since their description goes into the agent's context window), or for user-invoked commands. Follow the advice in the `writing-for-agents` skill.

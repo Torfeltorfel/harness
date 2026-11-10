@@ -1,59 +1,170 @@
 ---
 name: pr
-description: Turn the current work into a GitHub pull request - branch, commit, push, and open the PR with a clear description. Use when the user asks to open, create or update a PR.
-argument-hint: "[draft] [base branch]"
+description: "Use when writing a PR body."
+metadata:
+  credits:
+    skill: show-me
+    author: Dex Horthy
+    organisation: Humanlayer
+    url: "https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md"
 ---
 
-# PR
-
-Ship the current changes as a pull request with `gh`.
-
-## 1. Check the state
-
-Run in parallel: `git status`, `git diff` (staged and unstaged), `git log` for
-commits not on the base branch, and `gh pr view` to see if a PR already exists
-for this branch. Base branch is the argument if given, else the repo default.
-
-Stop and ask if:
-- the diff contains things that look unrelated to the task, secrets, `.env`
-  files, or large generated files;
-- there is nothing to ship.
-
-## 2. Branch and commit
-
-- On the default branch: create a branch named `<type>/<short-slug>`
-  (`feat/`, `fix/`, `chore/`, `docs/`, `refactor/`).
-- Stage the relevant files by name, not `git add -A`.
-- Commit messages: imperative subject under 70 characters, body says why.
-  Follow the repo's existing style if `git log` shows one.
-- Run the project's fast checks (lint, typecheck, tests named in CLAUDE.md or
-  package scripts) before pushing. If they fail, fix or report, do not push
-  silently.
-
-## 3. Push and open
-
-Push with `-u`. Then `gh pr create` (add `--draft` if requested). If a PR
-already exists, just push; don't overwrite its description. Only when the new
-commits change what the PR does, append a short `## Update` section with
-`gh pr edit --body` built from the current body, or rewrite it if the user asks.
-Description for a new PR:
+Use this template for writing the PR body:
 
 ```markdown
-## Why
-<problem or goal, 1-3 sentences; link issue if there is one>
+## Summary
 
-## What
-<the changes, as a short list, grouped by intent not by file>
+<diagram, diff-sketch, or tree>
 
-## How to verify
-<commands run and their result, or manual steps>
+## Evidence
 
-## Notes
-<risks, follow-ups, things the reviewer should look at first; omit if none>
+- **Before:** <screenshot/output/failing test run>
+  **After:** <screenshot/output/passing test run>
+
+## Merge Danger
+
+**Door:** <one-way or two-way>
+
+<optional: description>
+
+**Blast Radius:** <one-word description>
+
+<optional: potential ramifications of merge>
 ```
 
-Write for a reviewer who has not seen the session. No filler.
+## Sections
 
-## 4. Report
+Skip all preambles and keep prose brief. Use the user's domain language from `GLOSSARY.md`.
 
-Give the PR URL and one line on CI if `gh pr checks` already shows something.
+### Summary
+
+Pick the smallest view that makes the key point clear.
+
+- Show logic or an algorithm as pseudocode:
+
+```text
+on(save)
+  if content is unchanged
+    return cached result
+  write new content
+  return fresh result
+```
+
+- Show runtime control flow as a call tree:
+
+```text
+submitForm
+  createSession
+    persistPrompt
+    launchAgent
+  navigateToSession
+```
+
+- Show UI structure as a component tree, including state and module boundaries that matter:
+
+```text
+<SessionPage> (apps/example/src/routes/session.tsx)
+  useSessionEvents()
+  <SessionToolbar>
+    <RunSkillButton> (packages/ui)
+```
+
+- Show file responsibility or a broad refactor as a shallow file tree:
+
+```text
+src/
+├── commands/       # parses user actions
+├── sessions/       # owns session state
+└── transport/      # sends API requests
+```
+
+- Show component interaction, control flow, or data flow with Mermaid:
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant UI
+    participant Daemon
+    User->>UI: choose command
+    UI->>Daemon: send expanded prompt
+    Daemon-->>UI: stream result
+```
+
+- Use `diff` when the point is what changes and the surrounding shape already exists. Match the diff shape to the topic.
+
+For a component change:
+
+```diff
+ <SessionPage>
+   useSessionEvents()
+   <SessionToolbar>
++    <RunSkillButton />
+   <SessionTimeline>
++    <SkillResultCard />
+```
+
+For a file-layout change:
+
+```diff
+ src/
+ ├── commands/
++│   └── show-me.ts       # expands the slash command
+ ├── sessions/
+-└── transport.ts
++└── transport/
++    ├── client.ts
++    └── stream.ts
+```
+
+For a call-tree or call-stack change:
+
+```diff
+ submitForm
+   createSession
+     persistPrompt
++    expandSkillMention
+     launchAgent
+-  navigateToSession
++  navigateToSession
++    subscribeToEvents
+```
+
+For a state or control-flow change:
+
+```diff
+ on(save)
+-  write content
++  if content is unchanged
++    return cached result
++  write new content
++  invalidate cache
+```
+
+- Show the whole block when most of it is new, when omitted context would hide ownership or order, or when the user needs a copyable target shape:
+
+```ts
+function expandSkill(command: string): string {
+  const skillName = command.slice(1);
+  return `use the ${skillName} skill`;
+}
+```
+
+#### Guidance
+
+Place each visual next to the short text it supports. Keep only the calls, files, props, states, and boundaries needed to answer the user's current question or the options to resolve the current discussion point.
+
+You may use one of these, you may use several, it is unlikely you will use all of them. Use your judgement and don't overwhelm the user.
+
+### Evidence
+
+Concrete evidence that the change works. Show a before and after.
+
+Screenshots are S-tier - when the environment is set up for it and the change is visual.
+
+Execution-based evidence is A-tier. Test results, console output. Show the exact test that now fails and passes, using pseudocode.
+
+### Merge Danger
+
+Describe whether it's a one-way or two-way door. You can walk back through two-way doors, but not one-way doors. A PR that is cheap to roll back is lower risk. Changes that involve destructive actions or hard-to-reverse decisions are one-way doors.
+
+The blast radius is the potential impact or scope of the changes introduced by this PR. Consider all possibilities. Examples are layout shift, breakages for consumers, mobile responsiveness, etc.

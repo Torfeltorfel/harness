@@ -4,7 +4,8 @@ Reusable Claude Code plugins. Each project chooses its plugins in its committed 
 
 | Plugin | What it gives you |
 |---|---|
-| `engineering` | `/retro`, `/pr`, `/grill-with-docs`, `tdd`, `codebase-design`, `worktree`, and `research` for sourced technical questions |
+| `engineering` | Engineering skills from [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/engineering) (MIT, at `4ae2317`), plus `worktree`. Run `/setup-matt-pocock-skills` once per repo. |
+| `productivity` | Productivity skills from [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/productivity) (MIT). Engineering skills call `grilling` from here, so enable both. |
 | `research` | `/office-hours`, `discovery`, `market-research`, which write to `projects/<slug>/` |
 
 Enable in a project:
@@ -12,7 +13,7 @@ Enable in a project:
 ```json
 {
   "extraKnownMarketplaces": { "torben": { "source": { "source": "github", "repo": "Torfeltorfel/torben-harness" } } },
-  "enabledPlugins": { "engineering@torben": true, "research@torben": true }
+  "enabledPlugins": { "engineering@torben": true, "productivity@torben": true, "research@torben": true }
 }
 ```
 

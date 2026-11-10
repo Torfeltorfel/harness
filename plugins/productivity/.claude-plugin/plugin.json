@@ -1,0 +1,8 @@
+{
+  "name": "productivity",
+  "version": "0.1.0-exp.1",
+  "description": "Productivity skills from mattpocock/skills: grilling, grill-me, handoff, teach, to-questionnaire, wait-what, writing-for-agents.",
+  "author": {
+    "name": "Torben Feldmann"
+  }
+}

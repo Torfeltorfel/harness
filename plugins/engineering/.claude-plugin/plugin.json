@@ -1,7 +1,7 @@
 {
   "name": "engineering",
-  "version": "0.3.0",
-  "description": "Engineering workflow: /retro, /pr, /grill-with-docs, tdd, codebase-design, worktree and sourced technical research.",
+  "version": "0.4.0-exp.1",
+  "description": "Engineering skills from mattpocock/skills (spec, tickets, wayfinder, tdd, prototype, code review, architecture, domain modeling and more) plus worktree.",
   "author": {
     "name": "Torben Feldmann"
   }
