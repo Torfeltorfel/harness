@@ -155,7 +155,7 @@ After 5+ interviews, look for patterns across the notes:
 **Assumption audit:** For each assumption the JTBD interview (Phase 2) generated —
 trigger, friction, outcome — note whether these interviews **Confirmed**,
 **Contradicted**, or left it **Unclear**. This is exactly what Phase 4 asks
-you to write into `discovery.html`'s Knowledge Gaps section and
+you to write into `jobs-to-be-done.md`'s Knowledge Gaps section and
 `business-case.md`.
 
 **Red flags from interviews:**
@@ -179,7 +179,7 @@ you to write into `discovery.html`'s Knowledge Gaps section and
 - The problem they describe doesn't match the JTBD named in Phase 2
 
 **Document the outcome** by following `SKILL.md` Phase 4: update
-`discovery.html` (Knowledge Gaps resolved or still open) and
+`jobs-to-be-done.md` (Knowledge Gaps resolved or still open) and
 `business-case.md` Section 3 and Section 8 ("Where this stands"). If the
 interviews surface a significant mismatch with the JTBD from Phase 2, flag
 it plainly at the top of both docs so the next session addresses it before

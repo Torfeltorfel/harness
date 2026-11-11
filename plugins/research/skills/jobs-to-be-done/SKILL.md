@@ -6,7 +6,7 @@ description: Use when there is a knowledge gap of what the user tries to achieve
 ## Phase 1: Establish the Project
 
 Determine which project this is for — from context or by asking. If
-`projects/<slug>/business-case.md` and/or `projects/<slug>/discovery.html`
+`projects/<slug>/business-case.md` and/or `projects/<slug>/jobs-to-be-done.md`
 already exist, read them first.
 
 ## Phase 2: The JTBD Interview
@@ -81,25 +81,18 @@ If after two push cycles there is still no answer:
 
 ## Phase 4: Save Findings
 
-**Write/update `projects/<slug>/discovery.html`:**
-- Use `projects/assets/style.css` (same convention as `market-research`: copy it
-  from `../shared/assets/style.css` if missing), read it first and build on
-  it — extend only for a genuinely new reusable pattern. Link it with
-  `href="../assets/style.css"`.
+**Write/update `projects/<slug>/jobs-to-be-done.md`:**
 - Must show: the JTBD summary (trigger / friction / outcome, quoted in the
   founder's words where possible), the Four Forces if gathered, and a
-  **Knowledge Gaps** section using the `.callout-gap` style — never folded
-  into prose.
-- No fixed skeleton — same non-goal as `market-research`'s topic pages. Build
-  sections from the shared stylesheet's existing classes (`.finding`,
-  `.badge`, `.callout-gap`) rather than inventing new markup; layout and
-  grouping beyond the two requirements above are your judgment call.
+  **Knowledge Gaps** section of its own — never folded into prose.
+- No fixed skeleton — same non-goal as `market-research`'s topic pages;
+  layout and grouping beyond the requirements above are your judgment call.
 - Re-running jobs-to-be-done on the same project updates this file in place
   rather than creating a new dated file.
 
 **Update `business-case.md`:**
 - Synthesize into Section 3 (and Section 2 if the target user got sharper) —
-  a short synthesized line plus a pointer, e.g. "See discovery.html (updated
+  a short synthesized line plus a pointer, e.g. "See jobs-to-be-done.md (updated
   YYYY-MM-DD) for the full JTBD breakdown." Never dump the raw interview
   transcript into business-case.md.
 - Update Section 8 ("Where this stands") with which of trigger / friction /
@@ -116,7 +109,7 @@ If after two push cycles there is still no answer:
   restated vague answer — either the trigger/friction/outcome gets named
   concretely, or it's logged as a Knowledge Gap.
 - **Gaps are never buried.** Own labeled section, in conversation and in
-  discovery.html.
-- **Every session ends with a doc, not a memory.** discovery.html and
+  jobs-to-be-done.md.
+- **Every session ends with a doc, not a memory.** jobs-to-be-done.md and
   business-case.md carry state forward, not auto-memory.
 - **BE BRIEF:** The more words, the less gets read.

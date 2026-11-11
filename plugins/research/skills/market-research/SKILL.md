@@ -1,6 +1,6 @@
 ---
 name: market-research
-description: Sourced web research on a startup topic (competitors, pricing, market size, customer pain in public forums), with strength-tagged findings written to projects/<slug>/<topic>.html. Use when a startup knowledge gap can be filled from public sources. Not for technical or library questions (that is engineering:research).
+description: Sourced web research on a startup topic (competitors, pricing, market size, customer pain in public forums), with strength-tagged findings written to projects/<slug>/<topic>.md. Use when a startup knowledge gap can be filled from public sources. Not for technical or library questions (that is engineering:research).
 ---
 
 # Market research
@@ -25,27 +25,18 @@ evidence, not speculation.
      documented, specific gap.
    - **Medium** — real but thin: a single mention, no corroboration.
    - **Weak** — vague, old, or unsourced-feeling even though a URL exists.
-5. **Write/update `projects/<slug>/<topic-slug>.html`.** If
-   `projects/assets/style.css` doesn't exist yet, copy it from
-   `../shared/assets/style.css` (relative to this skill). Read the project
-   copy first and build on it — extend it only when a genuinely new reusable
-   pattern is needed, don't duplicate what's there.
+5. **Write/update `projects/<slug>/<topic-slug>.md`.**
 6. **Update `business-case.md`.** Append or replace a short synthesized line
-   in the relevant section, plus a pointer, e.g.: "See competitors.html
+   in the relevant section, plus a pointer, e.g.: "See competitors.md
    (updated YYYY-MM-DD) for sourced findings."
 
 ## Topic-page requirements (non-negotiable)
 
-Every `<topic-slug>.html` page must:
-- Link the project's shared stylesheet rather than duplicating styles
-  inline: `href="../assets/style.css"` (relative to
-  `projects/<slug>/<topic-slug>.html`).
-- Show, per finding: the finding/quote, a strength badge (strong/medium/weak
-  — use `.badge.badge-strong` / `.badge-medium` / `.badge-weak`), a
-  clickable source link, and the date found.
-- Render verbatim quotes as pull-quotes/blockquotes with visible attribution
-  (`<blockquote>` + `<cite>`) — not buried in a table.
-- Be self-contained and openable directly in a browser, no build step.
+Every `<topic-slug>.md` page must:
+- Show, per finding: the finding/quote, its strength (**strong** / **medium**
+  / **weak**), a source link, and the date found.
+- Render verbatim quotes as blockquotes with attribution on the line below
+  (`— [Source](url)`), not buried in a table.
 
 Everything else — headings, grouping, how many findings, visual emphasis —
 is a judgment call per topic. Different topics should look different.
