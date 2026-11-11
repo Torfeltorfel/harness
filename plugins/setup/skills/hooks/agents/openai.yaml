@@ -1,0 +1,5 @@
+interface:
+  display_name: "Setup hooks"
+  short_description: "Install the standard Claude Code hooks"
+policy:
+  allow_implicit_invocation: false

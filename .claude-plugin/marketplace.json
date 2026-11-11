@@ -23,7 +23,7 @@
     {
       "name": "setup",
       "source": "./plugins/setup",
-      "description": "Per-repo setup: engineering skills config, plus the CI and guardrails the project needs now."
+      "description": "Per-repo setup: engineering skills config, standard Claude Code hooks, and the CI and guardrails the project needs now."
     }
   ]
 }

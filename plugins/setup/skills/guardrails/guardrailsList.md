@@ -17,7 +17,7 @@ Everything worth considering for a project's CI and guardrails. `/setup:guardrai
 
 ## Tools
 
-Grouped by what they guard.
+Grouped by what they guard. Claude Code hooks aren't listed here: `/setup:hooks` installs the standard set in every project.
 
 ### Linting and code quality
 

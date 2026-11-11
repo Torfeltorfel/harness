@@ -9,7 +9,7 @@ Reusable Claude Code plugins. Each project chooses its plugins in its committed 
 | `engineering` | Engineering skills from [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/engineering) (MIT, at `4ae2317`), plus `worktree`. Needs `setup` (run `/setup:engineering` once per repo) and `productivity`. |
 | `productivity` | Productivity skills from [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/productivity) (MIT). Engineering skills call `grilling` from here. |
 | `research` | `/office-hours`, `discovery`, `market-research`, which write to `projects/<slug>/` |
-| `setup` | `/setup:engineering` configures a repo for the engineering skills; `/setup:guardrails` picks the CI and guardrails the project needs now from the tooling list |
+| `setup` | `/setup:engineering` configures a repo for the engineering skills; `/setup:hooks` installs the standard Claude Code hooks; `/setup:guardrails` picks the CI and guardrails the project needs now from the tooling list |
 
 ## Install and set up
 
@@ -24,7 +24,8 @@ Reusable Claude Code plugins. Each project chooses its plugins in its committed 
    ```json
    {
      "extraKnownMarketplaces": { "harness": { "source": { "source": "github", "repo": "Torfeltorfel/harness" } } },
-     "enabledPlugins": { "engineering@harness": true, "productivity@harness": true, "research@harness": true, "setup@harness": true }
+     "enabledPlugins": { "engineering@harness": true, "productivity@harness": true, "research@harness": true, "setup@harness": true },
+     "outputStyle": "Concise"
    }
    ```
 
@@ -36,12 +37,12 @@ Reusable Claude Code plugins. Each project chooses its plugins in its committed 
 
 **Update** to a new version: `claude plugin marketplace update harness`, then start a new session.
 
-## Suggested settings
+## Output style
 
-[`suggested-settings.json`](suggested-settings.json) holds personal defaults for `~/.claude/settings.json`. Plugins can't set these, so merge the keys in by hand (don't overwrite the file). Plugins themselves stay enabled per project.
+The project snippet above sets `outputStyle: Concise`, which leads with the result and drops preamble, narration and recaps.
 
-- `outputStyle: Concise` leads with the result and drops preamble, narration and recaps. Needs Claude Code v2.1.237+. The value is case-sensitive: `concise` silently falls back to Default.
-- Override per project in `.claude/settings.json`, or per session with `/output-style`. Note that `/output-style` and `/config` write to `.claude/settings.local.json`, which then wins over the user default in that project.
+- Needs Claude Code v2.1.237+. The value is case-sensitive: `concise` silently falls back to Default.
+- `/output-style` and `/config` write to `.claude/settings.local.json`, which then wins over the project setting.
 
 ## Tooling
 
