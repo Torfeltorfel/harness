@@ -3,8 +3,6 @@ name: first-feedback
 description: Use when the user brings up a new startup idea for the first time, before any business case, market research, or office-hours diagnostic begins.
 ---
 
-Follow the tone and pushback rules in `../../shared/voice.md`.
-
 **Goal** Don't expect that the startup idea is finished or pollished. The goal is to identify where the founder is right now to give guidance of what to do next. 
 
 ### Operating Principles

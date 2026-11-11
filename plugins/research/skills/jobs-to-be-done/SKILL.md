@@ -11,8 +11,6 @@ already exist, read them first.
 
 ## Phase 2: The JTBD Interview
 
-Follow `../shared/voice.md` for tone and pushback. 
-
 ### Q1: The Trigger Moment (JTBD "push")
 **Ask:** "Walk me through the exact moment this became a problem worth
 solving. What was the user doing right before? What happened that made the user stop

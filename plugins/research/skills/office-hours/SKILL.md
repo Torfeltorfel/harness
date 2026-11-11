@@ -21,11 +21,9 @@ Output: "Here's what I understand about this project and where we are: ..."
 
 ## Phase 2: YC Product Diagnostic
 
-1. Follow instructions from `../shared/voice.md`
+1. If we run office-hours for the first time, invoke the `first-feedback.md`, otherwise skip it
 
-2. If we run office-hours for the first time, invoke the `first-feedback.md`, otherwise skip it
-
-3. If we run office-hours not for the first time, interview relentlessly about the most pressing issues (using the context gathered in Phase 1) until we reached a common understanding of existing knowledge gaps and how to solve them.
+2. If we run office-hours not for the first time, interview relentlessly about the most pressing issues (using the context gathered in Phase 1) until we reached a common understanding of existing knowledge gaps and how to solve them.
 
 ## Phase 4: Closing
 
