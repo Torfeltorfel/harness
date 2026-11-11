@@ -34,7 +34,7 @@ Output: "Here's what I understand about this project and where we are: ..."
 **Reflect** What are the current weakpoints, what needs special attention and on which aspect do we need to focus on? 
 - **Progress** did the founder make progress since the last session?
 - **Gaps** what are the most pressing gaps in `business-case.md`?
-- **Next Steps** Which advise would a yCombinator advisor give? Instruct the founder what to do next and how to fix the knowledge gaps (web research, discovery, starting experiments, etc.).
+- **Next Steps** Which advise would a yCombinator advisor give? Instruct the founder what to do next and how to fix the knowledge gaps (web research, `jobs-to-be-done`, starting experiments, etc.).
 
 Every session copy `references/session-template.md` to `projects/<slug>/sessions/YYYY-MM-DD.md`. Then update `business-case.md` if we gathered new business relevant information.
 

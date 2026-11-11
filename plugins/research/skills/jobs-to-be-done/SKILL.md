@@ -1,5 +1,5 @@
 ---
-name: discovery
+name: jobs-to-be-done
 description: Use when there is a knowledge gap of what the user tries to achieve
 ---
 
@@ -96,7 +96,7 @@ If after two push cycles there is still no answer:
   sections from the shared stylesheet's existing classes (`.finding`,
   `.badge`, `.callout-gap`) rather than inventing new markup; layout and
   grouping beyond the two requirements above are your judgment call.
-- Re-running discovery on the same project updates this file in place
+- Re-running jobs-to-be-done on the same project updates this file in place
   rather than creating a new dated file.
 
 **Update `business-case.md`:**

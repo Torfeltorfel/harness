@@ -1,7 +1,7 @@
 {
   "name": "research",
-  "version": "0.2.0",
-  "description": "Startup research: office hours, JTBD discovery, sourced market research written to projects/<slug>/.",
+  "version": "0.3.0",
+  "description": "Startup research: office hours, jobs-to-be-done interviews, sourced market research written to projects/<slug>/.",
   "author": {
     "name": "Torben Feldmann"
   }

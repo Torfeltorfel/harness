@@ -13,7 +13,7 @@
     {
       "name": "research",
       "source": "./plugins/research",
-      "description": "Startup research: office hours, JTBD discovery, sourced market research written to projects/<slug>/."
+      "description": "Startup research: office hours, jobs-to-be-done interviews, sourced market research written to projects/<slug>/."
     },
     {
       "name": "productivity",
