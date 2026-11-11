@@ -1,5 +1,5 @@
 ---
-name: setup
+name: engineering
 description: "Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills."
 disable-model-invocation: true
 ---
@@ -107,11 +107,11 @@ When Section B ran on GitHub or GitLab, create each configured label the tracker
 
 Then write the docs files using the seed templates in this skill folder as a starting point:
 
-- [issue-tracker-github.md](./issue-tracker-github.md): GitHub issue tracker
-- [issue-tracker-gitlab.md](./issue-tracker-gitlab.md): GitLab issue tracker
-- [issue-tracker-local.md](./issue-tracker-local.md): local-markdown issue tracker
-- [triage-labels.md](./triage-labels.md): label mapping (only if `triage` is installed)
-- [domain.md](./domain.md): domain doc consumer rules + layout
+- [issue-tracker-github.md](templates/issue-tracker-github.md): GitHub issue tracker
+- [issue-tracker-gitlab.md](templates/issue-tracker-gitlab.md): GitLab issue tracker
+- [issue-tracker-local.md](templates/issue-tracker-local.md): local-markdown issue tracker
+- [triage-labels.md](templates/triage-labels.md): label mapping (only if `triage` is installed)
+- [domain.md](templates/domain.md): domain doc consumer rules + layout
 
 For "other" issue trackers, write `docs/agents/issue-tracker.md` from scratch using the user's description.
 

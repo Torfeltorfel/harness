@@ -1,0 +1,8 @@
+{
+  "name": "setup",
+  "version": "0.1.0",
+  "description": "Per-repo setup: engineering skills config, plus the CI and guardrails the project needs now.",
+  "author": {
+    "name": "Torben Feldmann"
+  }
+}

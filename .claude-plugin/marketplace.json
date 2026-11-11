@@ -19,6 +19,11 @@
       "name": "productivity",
       "source": "./plugins/productivity",
       "description": "Productivity skills from mattpocock/skills: grilling, grill-me, handoff, teach, to-questionnaire, wait-what, writing-for-agents."
+    },
+    {
+      "name": "setup",
+      "source": "./plugins/setup",
+      "description": "Per-repo setup: engineering skills config, plus the CI and guardrails the project needs now."
     }
   ]
 }

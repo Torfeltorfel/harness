@@ -1,0 +1,5 @@
+interface:
+  display_name: "Setup guardrails"
+  short_description: "Pick the CI and guardrails needed now"
+policy:
+  allow_implicit_invocation: false

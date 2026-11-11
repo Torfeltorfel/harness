@@ -2,13 +2,14 @@
 
 Reusable Claude Code plugins. Each project chooses its plugins in its committed `.claude/settings.json`.
 
-> **Credit:** the `engineering` and `productivity` skills started as a copy of Matt Pocock's [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, copied at commit `4ae2317`). This repo is my own setup built on that work and changes it freely; see the licenses in [`plugins/engineering/LICENSE-mattpocock`](plugins/engineering/LICENSE-mattpocock) and [`plugins/productivity/LICENSE`](plugins/productivity/LICENSE).
+> **Credit:** the `engineering` and `productivity` skills and `/setup:engineering` started as a copy of Matt Pocock's [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, copied at commit `4ae2317`). This repo is my own setup built on that work and changes it freely; see the licenses in [`plugins/engineering/LICENSE-mattpocock`](plugins/engineering/LICENSE-mattpocock), [`plugins/setup/LICENSE-mattpocock`](plugins/setup/LICENSE-mattpocock) and [`plugins/productivity/LICENSE`](plugins/productivity/LICENSE).
 
 | Plugin | What it gives you |
 |---|---|
-| `engineering` | Engineering skills from [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/engineering) (MIT, at `4ae2317`), plus `worktree`. Run `/setup` once per repo. |
-| `productivity` | Productivity skills from [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/productivity) (MIT). Engineering skills call `grilling` from here, so enable both. |
+| `engineering` | Engineering skills from [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/engineering) (MIT, at `4ae2317`), plus `worktree`. Needs `setup` (run `/setup:engineering` once per repo) and `productivity`. |
+| `productivity` | Productivity skills from [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/productivity) (MIT). Engineering skills call `grilling` from here. |
 | `research` | `/office-hours`, `discovery`, `market-research`, which write to `projects/<slug>/` |
+| `setup` | `/setup:engineering` configures a repo for the engineering skills; `/setup:guardrails` picks the CI and guardrails the project needs now from the tooling list |
 
 ## Install and set up
 
@@ -18,18 +19,18 @@ Reusable Claude Code plugins. Each project chooses its plugins in its committed 
    claude plugin marketplace add Torfeltorfel/harness
    ```
 
-2. **Enable the plugins in a project.** Add this to the project's committed `.claude/settings.json`, keeping only the plugins it needs (`engineering` needs `productivity`):
+2. **Enable the plugins in a project.** Add this to the project's committed `.claude/settings.json`, keeping only the plugins it needs (`engineering` needs `productivity` and `setup`):
 
    ```json
    {
      "extraKnownMarketplaces": { "harness": { "source": { "source": "github", "repo": "Torfeltorfel/harness" } } },
-     "enabledPlugins": { "engineering@harness": true, "productivity@harness": true, "research@harness": true }
+     "enabledPlugins": { "engineering@harness": true, "productivity@harness": true, "research@harness": true, "setup@harness": true }
    }
    ```
 
-   Then start a new Claude Code session in the project and accept the prompt to install the plugins. Or install them by hand: `claude plugin install engineering@harness` (same for `productivity` and `research`).
+   Then start a new Claude Code session in the project and accept the prompt to install the plugins. Or install them by hand: `claude plugin install engineering@harness` (same for `productivity`, `research` and `setup`).
 
-3. **Set up the repo** (once per project): run `/setup` in a session. It asks where issues live (GitHub, GitLab, local markdown or other) and the triage labels, then writes `docs/agents/*.md` and an `## Agent skills` block in `CLAUDE.md` that the other engineering skills read.
+3. **Set up the repo** (once per project): run `/setup:engineering` in a session. It asks where issues live (GitHub, GitLab, local markdown or other) and the triage labels, then writes `docs/agents/*.md` and an `## Agent skills` block in `CLAUDE.md` that the other engineering skills read.
 
 4. **Check it worked:** `/plugin` lists the plugins and their versions. Not sure which skill to use? Run `/ask-matt`.
 
@@ -44,9 +45,7 @@ Reusable Claude Code plugins. Each project chooses its plugins in its committed 
 
 ## Tooling
 
-[`tooling.md`](tooling.md): tools for projects, as ideas, experimental or suggested.
-
-[`ci-best-practices.md`](ci-best-practices.md): concepts for a good CI pipeline.
+[`guardrailsList.md`](plugins/setup/skills/guardrails/guardrailsList.md): CI practices and tools for projects, grouped by type. `/setup:guardrails` picks from it.
 
 ## Experimenting with harness changes
 
