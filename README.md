@@ -8,7 +8,7 @@ Reusable Claude Code plugins. Each project chooses its plugins in its committed 
 |---|---|
 | `engineering` | Engineering skills from [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/engineering) (MIT, at `4ae2317`), plus `worktree`. Needs `setup` (run `/setup:engineering` once per repo) and `productivity`. |
 | `productivity` | Productivity skills from [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/productivity) (MIT). Engineering skills call `grilling` from here. |
-| `research` | `/office-hours`, `jobs-to-be-done`, `market-research`, which write to `projects/<slug>/` |
+| `research` | `/office-hours`, `jobs-to-be-done`, `market-research`, `/mvp`, which write to `projects/<slug>/` |
 | `setup` | `/setup:engineering` configures a repo for the engineering skills; `/setup:hooks` installs the standard Claude Code hooks; `/setup:guardrails` picks the CI and guardrails the project needs now from the tooling list |
 
 ## Install and set up
